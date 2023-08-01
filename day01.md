@@ -83,7 +83,7 @@ Java关键字是预先定义的具有特别意义的标识符，也被称为Java
 | extends | int | short | try | char | final |
 | interface | class | finally | long | while | super |
 | static | void | strictfp | volatile | **const** | float |
-| native | **_ (underscore)** |
+| switch | native | **_ (underscore)** |
 
 
 > 注意：
