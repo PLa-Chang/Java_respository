@@ -28,7 +28,7 @@ Java开发环境搭建的步骤：
 
 JDK的结构图： 
 
-<img src="D:\kaifamiao\notes\java-img\image-20230731202635658.png" style="zoom: 67%;" />
+![输入图片说明](image/JDK%E7%BB%93%E6%9E%84.png)
 
 ### 1.1.3 JRE
 
@@ -38,7 +38,7 @@ JRE（Java Runtime Environment） 是 Java 运行时环境。它是运行已编�
 
 也就是说，JRE 是 Java 运行时环境，仅包含 Java 应用程序的运行时环境和必要的类库。而 JDK 则包含了 JRE，同时还包括了 javac、javadoc、jdb、jconsole、javap 等工具，可以用于 Java 应用程序的开发和调试。如果需要进行 Java 编程工作，比如编写和编译 Java 程序、使用 Java API 文档等，就需要安装 JDK。而对于某些需要使用 Java 特性的应用程序，如 JSP 转换为 Java Servlet、使用反射等，也需要 JDK 来编译和运行 Java 代码。因此，即使不打算进行 Java 应用程序的开发工作，也有可能需要安装 JDK。
 
-<img src="D:\kaifamiao\notes\java-img\image-20230801085047549.png" style="zoom:67%;" />
+![输入图片说明](image/jvm%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B.png)
 
 ## 二、为什么说 Java 语言“编译与解释并存”？
 
@@ -60,7 +60,7 @@ Java的执行过程[Java 即时编译器原理解析](https://gitee.com/link?tar
 - Java的执行过程整体可以分为两个部分，第一步由**javac**将源码编译成字节码，在这个过程中会进行词法分析、语法分析、语义分析，编译原理中这部分的编译称为前端编译。接下来无需编译直接逐条将**字节码**解释执行，在解释执行的过程中，虚拟机同时对程序运行的信息进行收集，在这些信息的基础上，编译器会逐渐发挥作用，它会进行后端编译——把字节码编译成机器码，但不是所有的代码都会被编译，只有被JVM认定为的热点代码，才可能被编译。
 - 怎么样才会被认为是热点代码呢？JVM中会设置一个阈值，当方法或者代码块的在一定时间内的调用次数超过这个阈值时就会被编译，存入codeCache中。当下次执行时，再遇到这段代码，就会从codeCache中读取机器码，直接执行，以此来提升程序运行的性能。整体的执行过程大致如下图所示：
 
-<img src="D:\kaifamiao\notes\java-img\image-20230731212416188.png" style="zoom:67%;" />
+![输入图片说明](image/jvm%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B.png)
 
 #### 2.2 所以为什么Java语言“编译与解释共存：
 
@@ -97,7 +97,7 @@ Java关键字是预先定义的具有特别意义的标识符，也被称为Java
 
 基本数据类型一共有八种，如下图所示：
 
-<img src="D:\kaifamiao\notes\java-img\image-20230731213753386.png" style="zoom:80%;" />
+![输入图片说明](image/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.png)
 
 基本数据类型的取值范围：
 
