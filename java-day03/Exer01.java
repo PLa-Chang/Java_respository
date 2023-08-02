@@ -1,7 +1,5 @@
 import java.util.Scanner;
-
 public class Exer01{
-
 	public static void main(String[] args){
 		/*
 			1. 输入一个整数
