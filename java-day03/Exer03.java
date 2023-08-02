@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class Exer03{
 	public static void main(String[] args){
 		/*
@@ -11,10 +10,8 @@ public class Exer03{
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("请输入三角形的三条边，以空格分隔：");
-		int firstSide = sc.nextInt();
-			
-		int secondSide = sc.nextInt();
-		
+		int firstSide = sc.nextInt();			
+		int secondSide = sc.nextInt();	
 		int thirdSide = sc.nextInt();
 		
 		boolean result = firstSide + secondSide > thirdSide 
