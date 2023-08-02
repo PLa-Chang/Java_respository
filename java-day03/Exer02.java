@@ -1,7 +1,5 @@
 import java.util.Scanner;
-
 public class Exer02{
-
 	public static void main(String[] args){
 		/*
 			交换两个数位置
