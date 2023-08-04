@@ -1,5 +1,4 @@
 public class Demo04 {
-
     public static void main(String[] args) {
         /*
             两个数的最大公约数
