@@ -7,6 +7,7 @@
 实例初始化
 构造函数
 static 作用
+
 实例(non-static/instance)
 构造重载
 实例化的过程
@@ -16,3 +17,4 @@ static 作用
 遮蔽（shadowing）jls 6.4.1
 this 解决遮蔽问题
 className.staticField 解决遮蔽问题
+
