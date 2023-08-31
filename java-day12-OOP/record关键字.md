@@ -2,7 +2,7 @@
 在Java 16中引入了record类，它是一种特殊的类，主要用于表示数据传输对象（DTO）或不可变数据实体。record类的目标是简化POJO（Plain Old Java Object）的创建，它自动生成一些通用方法，如`equals()`、`hashCode()`、`toString()`等，从而减少了样板代码的编写。以下是一个典型的record类的示例：
 
 ```
-javaCopy codepublic record Person(String name, int age) {
+public record Person(String name, int age) {
 }
 ```
 
@@ -17,7 +17,7 @@ record类的成员字段是不可变的，这意味着一旦创建对象，它�
 以下是如何使用record类的示例：
 
 ```java
-javaCopy codepublic class RecordExample {
+public class RecordExample {
     public static void main(String[] args) {
         // 创建record对象
         Person person = new Person("Alice", 30);
