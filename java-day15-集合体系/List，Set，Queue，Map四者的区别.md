@@ -57,3 +57,19 @@ ArrayList 内部基于动态数组实现，比 Array （静态数组） 使用�
 
 ## 3.1  LinkedList 为什么不能实现RandomAccess 接口？
 RandomAccess 是一个标记接口，用来表明实现该接口的类支持随机访问（即可以通过索引快速访问元素）。由于 LinkedList 底层数据结构是链表，内存地址不连续，只能通过指针移动来定位，不支持随机快速访问，所以不能实现RandomAccess 接口。
+# 4.ArrayList 与 LinkedList 区别?
+![输入图片说明](../image/LinkedList%E7%BB%A7%E6%89%BF%E5%9B%BE.png)![输入图片说明](../image/ArrayList.png)
+
+根据以上的继承结构图理解：
+- 是否保证线程安全： ArrayList 和 LinkedList 都是不同步的，也就是不保证线程安全；
+- 底层数据结构： ArrayList 底层使用的是 Object 数组； LinkedList 底层使用的是 双向链表 数据结构
+- 插入和删除是否受元素位置的影响：
+    - ArrayList 采用数组存储，所以插入和删除元素的时间复杂度受元素位置的影响。 比如：执行 add(E e) 方法的时候， ArrayList 会默认将指定的元素追加到末尾，这种情况时间复杂度就是 O(1)。但是如果要在指定位置 i插入和删除元素的话 add(int index, E element) ，时间复杂度就为O(n)。因为在进行上述操作的时候集合中第 i 和第 i 个元素之后的(n-i)个元素都要执行向后移一位的操作。
+    - LinkedList 采用链表存储，所以在头尾插入或者删除元素不受元素位置的影响（ add(E e) 、 addFirst(E e) 、 addLast(E e) 、removeFirst() 、 removeLast() ），时间复杂度为 O(1)，如果是要在指
+定位置 i 插入和删除元素的话（ add(int index, E element) ，remove(Object o) , remove(int index) ）， 时间复杂度为 O(n) ，因为需要先移动到指定位置再插入和删除。
+- 是否支持快速随机访问： LinkedList 不支持高效的随机元素访问，而ArrayList （实现了 RandomAccess 接口） 支持。快速随机访问就是通过元素的下标快速获取元素对象(对应于 get(int index) 方法)。
+- 内存空间占用： ArrayList 的空间浪费主要体现在 list 列表的结尾会预留一定的容量空间，而 LinkedList 的空间花费则体现在它的每一个元素都需要消耗比ArrayList 更多的空间（因为要存放直接后继和直接前驱以及数据）。
+
+ **另外，不要下意识地认为 LinkedList 作为链表就最适合元素增删的场景。我在上
+面也说了， LinkedList 仅仅在头尾插入或者删除元素的时候时间复杂度近似
+O(1)，其他情况增删元素的平均时间复杂度都是 O(n) 。** 
