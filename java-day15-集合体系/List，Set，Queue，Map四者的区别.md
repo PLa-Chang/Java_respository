@@ -54,3 +54,6 @@ ArrayList 内部基于动态数组实现，比 Array （静态数组） 使用�
 - ArrayList 中只能存储对象。对于基本类型数据，需要使用其对应的包装类（如 Integer、Double 等，不能是int，double等）。 Array 可以直接存储基本类型数据，也可以存储对象。
 - ArrayList 支持插入、删除、遍历等常见操作，并且提供了丰富的 API 操作方法，比如 add() 、 remove() 等。 Array 只是一个固定长度的数组，只能按照下标访问其中的元素，不具备动态添加、删除元素的能力。
 - ArrayList 创建时不需要指定大小，而 Array 创建时必须指定大小。
+
+## 3.1  LinkedList 为什么不能实现RandomAccess 接口？
+RandomAccess 是一个标记接口，用来表明实现该接口的类支持随机访问（即可以通过索引快速访问元素）。由于 LinkedList 底层数据结构是链表，内存地址不连续，只能通过指针移动来定位，不支持随机快速访问，所以不能实现RandomAccess 接口。
