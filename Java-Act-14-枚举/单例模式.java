@@ -61,3 +61,4 @@ class Test2{
         System.out.println(sing1 == sing2); // true
     }
 }
+
