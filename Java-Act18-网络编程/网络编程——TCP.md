@@ -12,10 +12,12 @@ java.net包中包含的类和接口，它们提供低层次的通信细节，我
 
 `Java.net`包中提供了两种常见的网络协议的支持：
 
-- UDP：用户数据包协议，**是无连接的通信协议，**所以不保证数据传输的完整性；传输重要数据时不建议使用。
-  - 特点：数据被限制在64kb以内，超出这个范围就不能发送了。
+- UDP：用户数据包协议，**是无连接的通信协议，即在数据传输时，数据的发送端和接收端不建立逻辑连接。**所以不保证数据传输的完整性；传输重要数据时不建议使用。
+  - 特点：
+  	- 非连接协议
+ 	- 数据传输效率高，数据传输不安全，可能会丢包
   - 数据报（Datagram）：网络传输的基本单位
-- TCP：传输控制协议，**面向连接，**它提供了两台计算机之间可靠无差错的数据传输。
+- TCP：传输控制协议，**面向连接，**它提供了两台计算机之间可靠无差错的数据传输。即在传输数据前，先在发送端和接收端建立逻辑连接，然后再传输数据，它提供了两台计算机之间可靠无差错的数据传输
   - 在TCP连接中必须要明确客户端与服务器端，由客户端向服务器端发送请求，每次连接的创建都必须经过”三次握手“
   - 三次握手：可保证连接的可靠
     - 第一次握手：客户端向服务器端发送连接请求，等待服务器端确认。
@@ -48,6 +50,7 @@ java.net包中包含的类和接口，它们提供低层次的通信细节，我
 
 - 特殊的**IP**地址
   - 127.0.0.1 / localhost 都表示本机
+  - 127.0.0.1 是本机回送地址（Loopback Address），主要用于网络软件测试以及本地机进程间通信，无论什么程序，一旦使用回送地址发送数据，协议软件立即返回之，不进行任何网络传输
 
 - 区别：
 	1. localhost 等于 127.0.0.1 ，不过 localhost 是域名， 127.0.0.1 是 IP 地址。
@@ -139,7 +142,7 @@ public class TCPClient {
         InputStream is = socket.getInputStream();
         //5.啊hi用网络字节输入流的InputStream对象中的方法read，读取服务器回写的数据
         byte[] bytes = new byte[1024];
-        int len = is.read();
+        int len = is.read(bytes);
         System.out.println(new String(bytes,0,len));
         //6.释放资源（Socket）
         os.close();
@@ -186,7 +189,7 @@ public class TCPServer {
         InputStream is = socket.getInputStream();
 //        4.使用网络字节输入流InputStream对象中的方法read，读取客户端发送的数据
         byte[] bytes = new byte[1024];
-        int len = is.read();
+        int len = is.read(bytes);
         System.out.println(new String(bytes,0,len));
 //        5.使用Socket到现在中的方法getOutputStream获取网络字节输出流OutputStream对象
         OutputStream os = socket.getOutputStream();
